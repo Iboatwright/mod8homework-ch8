@@ -59,8 +59,8 @@ def fluffy_intro():
 #   with the same index as that month.
 def get_rainfall(MONTHS, rainfall):
     print('{}\nPlease enter the rainfall for each month.\n'.format('_' * 41))
-    for k, month in enumerate(MONTHS):
-        rainfall[k] = input('{}:  '.format(month.capitalize()))
+    for month in MONTHS:
+        rainfall.append(float(input('{}:  '.format(month.capitalize()))))
     return None
 
 
@@ -83,9 +83,13 @@ def merge_sort(first, second):
 
 # display_results is passed values used in print statements to display
 #  the results of the program to the user.
-def display_results(yearlyTotal, avgMonthly, lowestMonth, highestMonth):
-    print('_' * 41)
-    print('The total rainfall for the year is: ' + yearlyTotal)
-    print('The average monthly rainfall is: ' + avgMonthly)
-    print('The month with the least rain was: ' + lowestMonth.capitalize())
-    print('The month with the most rain was: ' + highestMonth.capitalize())
+def display_results(total, avg, least, most):
+    print('{}\n'.format('_' * 50))
+    print('The total rainfall for the year is: {}'.format(total))
+    print('The average monthly rainfall is: {}'.format(avg))
+    print('The month with the least rain was: {}'.format(least.capitalize()))
+    print('The month with the most rain was: {}'.format(most.capitalize()))
+
+
+# Start the program.
+main()
