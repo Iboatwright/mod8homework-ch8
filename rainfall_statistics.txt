@@ -30,10 +30,10 @@ Module main()
      Set avgMonthly = calc_average(yearlyTotal, 12)
 
      // Get month with the least amount of rain.
-     Set lowestMonth = merge_sort(rainfall, months)[0][1]
+     Set lowestMonth = merge_sort(rainfall, MONTHS)[0][1]
 
      // Get month with the highest amount of rain.
-     Set highestMonth = merge_sort(rainfall, months)[-1][1]
+     Set highestMonth = merge_sort(rainfall, MONTHS)[-1][1]
 
      // Display the results.
      Call display_results(yearlyTotal, avgMonthly, lowestMonth, highestMonth)
@@ -45,12 +45,15 @@ End Module
 Module fluffy_intro()
     Display 'Welcome to the Rainfall Statistics program.'
     Display 'This program has you enter the total rainfall for each month.'
-    Display 'It then displays the total rainfall for the year, the monthly
-    Display 'average, and the months with the highest and lowest rainfall
+    Display 'It then displays the total rainfall for the year, the monthly'
+    Display 'average, and the months with the highest and lowest rainfall'
     Display 'amounts.'
 End Module
 
 
+// Iterates through the list of months.  Each iteration has the user input
+//  the rainfall for that month.  The value is assigned to the rainfall array
+//  with the same index as that month.
 Module get_rainfall(String Ref MONTHS, Real Ref rainfall[12])
     Declare Integer counter = 0
     For month In MONTHS Do
@@ -61,6 +64,7 @@ Module get_rainfall(String Ref MONTHS, Real Ref rainfall[12])
 End Module
 
 
+// Returns the total divided by the count.
 Function calc_average(Real total, Integer count)
 	Return total / count
 End Function
